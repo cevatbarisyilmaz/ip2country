@@ -13,3 +13,4 @@ country, _ := ip2country.Country(net.IPv4(8, 8, 8, 8))
 fmt.Println(country)
 // Output: US
 ```
+This product includes GeoLite2 data created by MaxMind, available from https://www.maxmind.com
