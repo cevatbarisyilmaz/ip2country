@@ -5,6 +5,7 @@ to map net.IPs to country ISO codes
 package ip2country
 
 import (
+	"encoding/base64"
 	"github.com/oschwald/maxminddb-golang"
 	"net"
 )
@@ -18,7 +19,8 @@ type record struct {
 var reader *maxminddb.Reader
 
 func init() {
-	reader, _ = maxminddb.FromBytes(data)
+	d2, _ := base64.StdEncoding.DecodeString(data)
+	reader, _ = maxminddb.FromBytes(d2)
 }
 
 // Country returns ISO code of the country that given IP belongs to.
